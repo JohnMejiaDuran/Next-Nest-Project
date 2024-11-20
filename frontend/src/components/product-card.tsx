@@ -9,7 +9,6 @@ export function ProductCard({product}: any) {
     const router = useRouter()
 
     async function handleRemoveProduct(id: string) {
-        console.log(id)
         await deleteProduct(id)
         router.refresh();
     }
