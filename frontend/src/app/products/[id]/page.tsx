@@ -2,7 +2,7 @@ import { getProduct } from "../products.api"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
 import { buttonVariants } from "@/components/ui/button"
-import Image from "next/image"
+// import Image from "next/image"
 
 type Params = Promise<{ id: string }>
 
@@ -29,7 +29,8 @@ async function ProductDetailPage (props: {params: Params}) {
                 <h1>{product.name}</h1>
                 <p>{product.description}</p>
                 <p>${product.price}</p>
-                <Image src={product.image} alt="pc" className="w-full h-80 object-cover w-70"/>
+                <img src="{product.image}" alt="PC" className="w-full h-80 object-cover w-70"/>
+                {/* <Image src={product.image} alt="pc" className="w-full h-80 object-cover w-70" width={300} height={300}/> */}
             </CardContent>
         </Card>
     </div>

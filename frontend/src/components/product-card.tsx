@@ -4,7 +4,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Button } from "@/components/ui/button"
 import { deleteProduct } from "@/app/products/products.api";
 import { useRouter} from "next/navigation";
-import Image from "next/image";
+// import Image from "next/image";
 
 export function ProductCard({product}: any) {
     const router = useRouter()
@@ -26,7 +26,8 @@ export function ProductCard({product}: any) {
               </span>
             </CardTitle>
           </CardHeader>
-          <Image src={product.image} alt="pc"/>
+          <img src={product.image} alt="PC" />
+          {/* <Image src={product.image} alt="pc" width={300} height={300}/> */}
           <CardContent>
             <p>
               {product.description}
