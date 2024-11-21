@@ -2,14 +2,12 @@ import { getProduct } from "../products.api"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
 import { buttonVariants } from "@/components/ui/button"
+import Image from "next/image"
 
-interface Props {
-    params: {
-        id: string
-    };
-}
+type Params = Promise<{ id: string }>
 
-async function ProductDetailPage ({params}: Props) {
+async function ProductDetailPage (props: {params: Params}) {
+    const params = await props.params
     const product = await getProduct(params.id)
     console.log(product)
     return <div
@@ -31,7 +29,7 @@ async function ProductDetailPage ({params}: Props) {
                 <h1>{product.name}</h1>
                 <p>{product.description}</p>
                 <p>${product.price}</p>
-                <img src={product.image} alt="" className="w-full h-80 object-cover w-70"/>
+                <Image src={product.image} alt="pc" className="w-full h-80 object-cover w-70"/>
             </CardContent>
         </Card>
     </div>

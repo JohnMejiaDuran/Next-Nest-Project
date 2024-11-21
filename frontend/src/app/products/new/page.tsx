@@ -2,13 +2,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ProductForm } from "./product-form"
 import { getProduct } from "../products.api";
 
-interface Props {
-    params: {
-        id:string;
-    };
-}
+type Params = Promise<{ id: string }>
 
-async function ProductsNewPage({params}: Props) {
+async function ProductsNewPage(props: {params: Params}) {
+    const params = await props.params;
     const product = await getProduct(params.id);
     console.log(product)
 
